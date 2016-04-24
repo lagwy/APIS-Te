@@ -182,7 +182,7 @@ public class Registro extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(context, "Usuario añadido con éxito",  Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Registro.this, bienvenida.class);
+                        Intent intent = new Intent(Registro.this, Bienvenida.class);
                         intent.putExtra("nombre", sNombre);
                         startActivity(intent);
                     }

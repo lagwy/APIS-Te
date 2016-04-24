@@ -14,13 +14,13 @@ public class IniciarSesion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iniciar);
+        setContentView(R.layout.activity_iniciar_sesion);
 
         // Declaración de variables de interfaz
         final EditText emailET = (EditText) findViewById(R.id.correoIniciarET);
         final EditText passwordET = (EditText) findViewById(R.id.passwordIniciarET);
         final Button iniciarBtn = (Button) findViewById(R.id.iniciarSesionBtn);
-        final Button regresaBtn = (Button) findViewById(R.id.backRegistroBtn);
+        final Button regresaBtn = (Button) findViewById(R.id.backIniciarBtn);
 
         View.OnClickListener buttonListener = new View.OnClickListener() {
             @Override
@@ -31,16 +31,6 @@ public class IniciarSesion extends AppCompatActivity {
                     if (revisaVacio(sEmailIniciar) && revisaVacio(sPasswordIniciar)) {
                         Toast.makeText(getApplicationContext(), "Datos completos",
                                 Toast.LENGTH_SHORT).show();
-                        /*if (samePwd(sPasswordRegistro,sConfirmaPwdRegistro)){
-                            Toast.makeText(getApplicationContext(), "Datos completos",
-                                    Toast.LENGTH_SHORT).show();
-                            // Aquí se llama el registro de la base de datos
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Los campos de contraseña no" +
-                                            "coinciden.",
-                                    Toast.LENGTH_SHORT).show();
-                        }*/
-
                     } else {
                         Toast.makeText(getApplicationContext(), "No están completos los campos",
                                 Toast.LENGTH_SHORT).show();
@@ -69,4 +59,3 @@ public class IniciarSesion extends AppCompatActivity {
         return false;
     }
 }
-

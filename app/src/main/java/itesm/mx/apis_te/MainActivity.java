@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (inicioSesionBtn.isPressed()){
-                    Intent intent1 = new Intent(MainActivity.this, IniciarSesion.class);
-                    startActivity(intent1);
+                    Intent intent = new Intent(MainActivity.this, IniciarSesion.class);
+                    startActivity(intent);
                 }
             }
         };
