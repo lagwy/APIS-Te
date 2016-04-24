@@ -26,10 +26,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -185,7 +182,7 @@ public class Registro extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(context, "Usuario añadido con éxito",  Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Registro.this, Bienvenida.class);
+                        Intent intent = new Intent(Registro.this, bienvenida.class);
                         intent.putExtra("nombre", sNombre);
                         startActivity(intent);
                     }

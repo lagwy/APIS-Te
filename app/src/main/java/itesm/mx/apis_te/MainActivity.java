@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (inicioSesionBtn.isPressed()){
-                    Toast.makeText(getApplicationContext(),"Not implemented yet",
-                            Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(MainActivity.this, IniciarSesion.class);
+                    startActivity(intent1);
                 }
             }
         };
