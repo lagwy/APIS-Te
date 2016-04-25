@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="itesm.mx.apis_te.Creditos"
-    android:id="@+id/">
+    tools:context="itesm.mx.apis_te.Creditos">
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,58 +28,14 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Jorge Luis Márquez Sánchez - A01139543\nLuis Ángel Martínez García - A00813485"
-        android:id="@+id/textView"
+        android:text=""
+        android:id="@+id/descripcionCreditosTV"
         android:textSize="20dp"
+        android:scrollbars = "vertical"
         android:layout_below="@+id/backCreditosBtn"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Desarrollador/Tester del proyecto"
-        android:id="@+id/textView2"
-        android:textSize="20dp"
-        android:layout_below="@+id/tituloCreditosTV"
-        android:layout_alignStart="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Documentación del proyecto"
-        android:id="@+id/textView3"
-        android:textSize="20dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Carlos Rodríguez Jasso - A01281074\nEduardo Alejandro Garza Sánchez - A00816836"
-        android:id="@+id/textView4"
-        android:textSize="20dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recursos de apoyo"
-        android:id="@+id/textView5"
-        android:textSize="20dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alejandra Medrano Banda - A00516474\nJosé Enrique Rivas Mata - A00814757 "
-        android:id="@+id/textView6"
-        android:textSize="20dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
 
 
 </RelativeLayout>
