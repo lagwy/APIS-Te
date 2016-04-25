@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="itesm.mx.apis_te.Cuenta">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Información del usuario"
+        android:id="@+id/tituloCreditosTV"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regresar"
+        android:id="@+id/backCuentaBtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:id="@+id/nombreTV"
+        android:textSize="20dp"
+        android:layout_below="@+id/backCuentaBtn"
+        android:layout_alignStart="@+id/tituloCreditosTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/nombreCuentaTV"
+        android:textSize="20dp"
+        android:layout_above="@+id/emailTV"
+        android:layout_toEndOf="@+id/cambiarPwdTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo electrónico: "
+        android:id="@+id/emailTV"
+        android:textSize="20dp"
+        android:layout_below="@+id/nombreTV"
+        android:layout_alignStart="@+id/nombreTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/emailCuentaTV"
+        android:textSize="20dp"
+        android:layout_below="@+id/nombreCuentaTV"
+        android:layout_alignStart="@+id/nombreCuentaTV" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cambiar contraseña"
+        android:id="@+id/cambiarPwdTV"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:id="@+id/passwordCuentaET"
+        android:layout_below="@+id/cambiarPwdTV"
+        android:layout_alignStart="@+id/emailTV"
+        android:layout_alignEnd="@+id/tituloCreditosTV" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Confirmar contraseña"
+        android:id="@+id/nuevapwdCuentaET"
+        android:layout_below="@+id/passwordCuentaET"
+        android:layout_alignStart="@+id/passwordCuentaET"
+        android:layout_alignEnd="@+id/passwordCuentaET" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Confirmar contraseña"
+        android:id="@+id/confirmapwdET"
+        android:layout_below="@+id/nuevapwdCuentaET"
+        android:layout_alignEnd="@+id/nuevapwdCuentaET"
+        android:layout_alignStart="@+id/nuevapwdCuentaET" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:id="@+id/guardarCuentaBtn"
+        android:layout_alignTop="@+id/passwordCuentaET"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
