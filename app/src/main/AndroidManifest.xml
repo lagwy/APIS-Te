@@ -37,10 +37,20 @@
         <activity
             android:name=".Bienvenida"
             android:screenOrientation="landscape" />
-        <activity android:name=".IniciarSesion" android:screenOrientation="landscape"/>
-        <activity android:name=".Juego" android:screenOrientation="landscape"/>
-        <activity android:name=".Creditos" android:screenOrientation="landscape"/>
-        <activity android:name=".Cuenta" android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".IniciarSesion"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Juego"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Creditos"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Cuenta"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Pregunta"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
