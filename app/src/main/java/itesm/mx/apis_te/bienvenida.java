@@ -26,17 +26,24 @@ public class Bienvenida extends AppCompatActivity {
             sNombre = extras.getString("nombre");
         }
 
-        mensajeTV.setText(sNombre + ": Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec " +
-                "nisl sapien. Praesent a dapibus odio. Fusce at mauris vel orci sollicitudin " +
-                "iaculis ac ut elit. Vestibulum placerat rhoncus finibus. Nullam vehicula elit " +
-                "sit amet erat ornare bibendum. Aliquam porttitor dui nec luctus gravida. " +
-                "Vestibulum scelerisque tellus quis maximus semper. ");
+        mensajeTV.setText("¡Bienvenido a Teaville!\n" +
+                "\n" +
+                "Teaville no es solo un juego, es una herramienta diseñada para poner en práctica" +
+                " tus conocimientos sobre química. Además, pondremos a prueba todo lo que sepas" +
+                " con respecto al té y sus múltiples propiedades.\n" +
+                "\n" +
+                "¿El reto? ¡Llenar tu jardín de los árboles y arbustos necesarios para poder " +
+                "preparar tus propios tés!\n" +
+                "\n" +
+                "Te deseamos el mejor de los éxitos, ¡arma tu jardín!");
 
         View.OnClickListener buttonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (avanzaBtn.isPressed()){
-                    Toast.makeText(getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Bienvenida.this, Juego.class);
+                    startActivity(intent);
                 }
             }
         };
