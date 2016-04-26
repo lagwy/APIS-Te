@@ -10,13 +10,12 @@
     tools:context="itesm.mx.apis_te.MainActivity">
 
     <ImageView
-        android:layout_width="200px"
-        android:layout_height="100px"
+        android:layout_width="400px"
+        android:layout_height="300px"
         android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:src="@android:drawable/sym_def_app_icon" />
+        android:src="@mipmap/teaville_logo"
+        android:layout_above="@+id/btnMenuRegistro"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="250dp"
