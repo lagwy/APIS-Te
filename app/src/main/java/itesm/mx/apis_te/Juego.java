@@ -24,13 +24,13 @@ public class Juego extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Juego.this, Creditos.class);
+                Intent intent = new Intent(Juego.this, Pregunta.class);
                 String sTe = "";
                 if (anisIV.isPressed()){
                     sTe = "Anis";
                 }
                 if (camelliaIV.isPressed()){
-                    sTe = "Camellia";
+                    sTe = "Camellia Sinensis";
                 }
                 if (ginsengIV.isPressed()){
                     sTe = "Ginseng";
@@ -44,7 +44,7 @@ public class Juego extends AppCompatActivity {
                 if (manzanillaIV.isPressed()){
                     sTe = "Manzanilla";
                 }
-                Toast.makeText(getApplicationContext(), sTe, Toast.LENGTH_SHORT).show();
+                intent.putExtra("tipo",sTe);
                 startActivity(intent);
             }
         };

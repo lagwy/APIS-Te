@@ -1,6 +1,7 @@
 package itesm.mx.apis_te;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import java.util.List;
  * Created by Jorge on 24/04/2016.
  */
 public class IniciarSesion extends AppCompatActivity {
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +118,14 @@ public class IniciarSesion extends AppCompatActivity {
         }
 
         @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pDialog = new ProgressDialog(IniciarSesion.this);
+            pDialog.setMessage("Cargando...");
+            pDialog.show();
+        }
+
+        @Override
         protected String doInBackground(String... params) {
             final String resultado = busca(sEmail, sPassword);
             if (resultado.matches("true"))
@@ -125,6 +135,7 @@ public class IniciarSesion extends AppCompatActivity {
                         Toast.makeText(context, "Iniciando sesión...",  Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(IniciarSesion.this, Bienvenida.class);
                         intent.putExtra("nombre", sEmail);
+                        pDialog.dismiss();
                         startActivity(intent);
                     }
                 });

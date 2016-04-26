@@ -12,55 +12,56 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250px"
+        android:layout_height="250px"
         android:id="@+id/masetaIV1"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:src="@mipmap/teaville_anis"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="42dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:src="@mipmap/teaville_camellia"
         android:id="@+id/masetaIV2"
-        android:src="@android:drawable/sym_def_app_icon"
         android:layout_alignTop="@+id/masetaIV1"
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250px"
+        android:layout_height="250px"
         android:id="@+id/masetaIV3"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:src="@mipmap/teaville_ginseng"
         android:layout_alignTop="@+id/masetaIV2"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="48dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250px"
+        android:layout_height="250px"
         android:id="@+id/masetaIV4"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:src="@mipmap/teaville_jazmin"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/masetaIV1" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250px"
+        android:layout_height="250px"
         android:id="@+id/masetaIV5"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:src="@mipmap/teaville_limon"
         android:layout_alignBottom="@+id/masetaIV4"
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250px"
+        android:layout_height="250px"
         android:id="@+id/masetaIV6"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:src="@mipmap/teaville_manzanilla"
         android:layout_alignTop="@+id/masetaIV5"
         android:layout_alignStart="@+id/masetaIV3" />
 
+    <!--
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,5 +69,5 @@
         android:src="@android:drawable/sym_def_app_icon"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/masetaIV2" />
-
+    -->
 </RelativeLayout>

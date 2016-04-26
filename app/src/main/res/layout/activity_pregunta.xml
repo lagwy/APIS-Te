@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="itesm.mx.apis_te.Pregunta">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Te"
+        android:id="@+id/tituloPreguntaTV"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="200px"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Descripcion"
+        android:id="@+id/descripcionPreguntaTV"
+        android:layout_below="@+id/tituloPreguntaTV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="200px"
+        android:text="Op1"
+        android:id="@+id/firstOptionBtn"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tituloPreguntaTV" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="200px"
+        android:text="Op2"
+        android:id="@+id/secondOptionBtn"
+        android:layout_alignTop="@+id/firstOptionBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tituloPreguntaTV" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="200px"
+        android:text="Op3"
+        android:id="@+id/thirdOptionBtn"
+        android:layout_below="@+id/firstOptionBtn"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tituloPreguntaTV" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="200px"
+        android:text="Op4"
+        android:id="@+id/fourthOptionBtn"
+        android:layout_alignTop="@+id/thirdOptionBtn"
+        android:layout_alignStart="@+id/secondOptionBtn"
+        android:layout_alignEnd="@+id/secondOptionBtn" />
+
+</RelativeLayout>
