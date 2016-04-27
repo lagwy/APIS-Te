@@ -134,7 +134,7 @@ public class IniciarSesion extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(context, "Iniciando sesión...",  Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(IniciarSesion.this, Bienvenida.class);
-                        intent.putExtra("nombre", sEmail);
+                        intent.putExtra("email", sEmail);
                         pDialog.dismiss();
                         startActivity(intent);
                     }

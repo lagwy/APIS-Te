@@ -35,6 +35,7 @@ public class Pregunta extends AppCompatActivity {
     Button thirdOptionBtn;
     Button fourthOptionBtn;
     int iCorrecta = 0;
+    String tipoDePregunta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class Pregunta extends AppCompatActivity {
 
         // Variables
         String sTitulo = "";
+        tipoDePregunta = "";
         descripcionPreguntaTV = (TextView) findViewById(R.id.descripcionPreguntaTV);
         firstOptionBtn = (Button) findViewById(R.id.firstOptionBtn);
         secondOptionBtn = (Button) findViewById(R.id.secondOptionBtn);
@@ -161,6 +163,8 @@ public class Pregunta extends AppCompatActivity {
                         //Toast.makeText(context,"4"+ sPregunta[4],  Toast.LENGTH_SHORT).show();
                         //Toast.makeText(context,"5"+ sPregunta[5],  Toast.LENGTH_SHORT).show();
                         iCorrecta = Integer.parseInt(sPregunta[5]);
+                        tipoDePregunta = sPregunta[6];
+                        Toast.makeText(context,"6 "+ sPregunta[6],  Toast.LENGTH_SHORT).show();
                         pDialog.dismiss();
                     }
                 });
@@ -170,6 +174,8 @@ public class Pregunta extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(context, "No hay preguntas disponibles",
                                 Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
+                        finish();
                     }
                 });
             return null;
