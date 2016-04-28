@@ -8,18 +8,39 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Juego extends AppCompatActivity {
+    ImageView anisIV;
+    ImageView camelliaIV;
+    ImageView ginsengIV;
+    ImageView jazminIV;
+    ImageView limonIV;
+    ImageView manzanillaIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
-        final ImageView anisIV = (ImageView) findViewById(R.id.masetaIV1);      // Anis
-        final ImageView camelliaIV = (ImageView) findViewById(R.id.masetaIV2);  // Camellia
-        final ImageView ginsengIV = (ImageView) findViewById(R.id.masetaIV3);   // Ginseng
-        final ImageView jazminIV = (ImageView) findViewById(R.id.masetaIV4);    // Jazmin
-        final ImageView limonIV = (ImageView) findViewById(R.id.masetaIV5);     // Limon
-        final ImageView manzanillaIV = (ImageView) findViewById(R.id.masetaIV6);// Manzanilla
+
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                anisIV = (ImageView) findViewById(R.id.masetaIV1);      // Anis
+                camelliaIV = (ImageView) findViewById(R.id.masetaIV2);  // Camellia
+                ginsengIV = (ImageView) findViewById(R.id.masetaIV3);   // Ginseng
+            }
+        });
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                jazminIV = (ImageView) findViewById(R.id.masetaIV4);    // Jazmin
+                limonIV = (ImageView) findViewById(R.id.masetaIV5);     // Limon
+                manzanillaIV = (ImageView) findViewById(R.id.masetaIV6);// Manzanilla
+            }
+        });
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override

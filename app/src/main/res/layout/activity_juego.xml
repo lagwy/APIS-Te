@@ -61,6 +61,60 @@
         android:layout_alignTop="@+id/masetaIV5"
         android:layout_alignStart="@+id/masetaIV3" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:id="@+id/button"
+        android:layout_alignBottom="@+id/masetaIV1"
+        android:layout_alignStart="@+id/masetaIV1" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:id="@+id/button2"
+        android:layout_alignBottom="@+id/masetaIV2"
+        android:layout_alignStart="@+id/masetaIV2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:id="@+id/button3"
+        android:layout_alignBottom="@+id/masetaIV3"
+        android:layout_alignStart="@+id/masetaIV3" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:id="@+id/button4"
+        android:layout_alignBottom="@+id/masetaIV4"
+        android:layout_alignStart="@+id/masetaIV4" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:id="@+id/button5"
+        android:layout_alignBottom="@+id/masetaIV5"
+        android:layout_alignStart="@+id/masetaIV5" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:text="100%"
+        android:id="@+id/button6"
+        android:layout_alignBottom="@+id/masetaIV6"
+        android:layout_alignStart="@+id/masetaIV6" />
+
     <!--
     <ImageView
         android:layout_width="wrap_content"
