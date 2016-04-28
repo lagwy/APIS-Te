@@ -1,5 +1,7 @@
 package itesm.mx.apis_te;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,14 +16,15 @@ public class Juego extends AppCompatActivity {
     ImageView jazminIV;
     ImageView limonIV;
     ImageView manzanillaIV;
+    int iCerrarSesion; // Variable para cuando se presiona el botón de back
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
-
-
+        // Inicializar variables en threads
+        iCerrarSesion = 0;
         runOnUiThread(new Runnable() {
 
             @Override
@@ -76,5 +79,32 @@ public class Juego extends AppCompatActivity {
         jazminIV.setOnClickListener(listener);
         limonIV.setOnClickListener(listener);
         manzanillaIV.setOnClickListener(listener);
+    }
+
+    public void onBackPressed(){
+        // No cerrar la actividad
+        iCerrarSesion++;
+        if (iCerrarSesion > 2){
+            // Mandar dialogo de confirmación
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Cerrar sesión")
+                    .setMessage("¿Estás seguro que deseas cerrar la sesión?")
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+
+                    })
+                    .setNegativeButton("No",new DialogInterface.OnClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int which){
+                            iCerrarSesion = 0;
+                        }
+                    })
+                    .show();
+        }
     }
 }

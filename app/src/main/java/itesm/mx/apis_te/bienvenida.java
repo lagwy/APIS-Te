@@ -43,11 +43,17 @@ public class Bienvenida extends AppCompatActivity {
                 if (avanzaBtn.isPressed()){
                     // Toast.makeText(getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Bienvenida.this, Juego.class);
+                    // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    finish();
                 }
             }
         };
 
         avanzaBtn.setOnClickListener(buttonListener);
+    }
+
+    public void onBackPressed(){
+        // No cerrar la actividad
     }
 }

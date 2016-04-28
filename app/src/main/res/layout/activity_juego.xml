@@ -63,8 +63,8 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="190px"
-        android:layout_height="100px"
+        android:layout_width="200px"
+        android:layout_height="120px"
         android:text="Anis\n100%"
         android:id="@+id/anisScoreBtn"
         android:clickable="false"
@@ -74,8 +74,8 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="190px"
-        android:layout_height="100px"
+        android:layout_width="200px"
+        android:layout_height="120px"
         android:text="Camellia\n100%"
         android:id="@+id/camelliaScoreBtn"
         android:clickable="false"
@@ -84,8 +84,8 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="190px"
-        android:layout_height="100px"
+        android:layout_width="200px"
+        android:layout_height="120px"
         android:text="Ginseng\n100%"
         android:id="@+id/ginsengScoreBtn"
         android:clickable="false"
@@ -94,8 +94,8 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="190px"
-        android:layout_height="100px"
+        android:layout_width="200px"
+        android:layout_height="120px"
         android:text="Jazmin\n100%"
         android:id="@+id/jazminScoreBtn"
         android:clickable="false"
@@ -104,8 +104,8 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="190px"
-        android:layout_height="100px"
+        android:layout_width="200px"
+        android:layout_height="120px"
         android:text="Limon\n100%"
         android:id="@+id/limonScoreBtn"
         android:clickable="false"
@@ -114,8 +114,8 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="190px"
-        android:layout_height="100px"
+        android:layout_width="200px"
+        android:layout_height="120px"
         android:text="Manzanilla\n100%"
         android:id="@+id/manzanillaScoreBtn"
         android:clickable="false"
