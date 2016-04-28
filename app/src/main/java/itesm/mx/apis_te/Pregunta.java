@@ -153,18 +153,23 @@ public class Pregunta extends AppCompatActivity {
                         // Descrip, R1, R2, R3, R4, RC
                         descripcionPreguntaTV.setText(sPregunta[0]);
                         //Toast.makeText(context,"0"+ sPregunta[0],  Toast.LENGTH_SHORT).show();
-                        firstOptionBtn.setText(sPregunta[1]);
+                        firstOptionBtn.setText("A) " + sPregunta[1]);
                         //Toast.makeText(context,"1"+ sPregunta[1],  Toast.LENGTH_SHORT).show();
-                        secondOptionBtn.setText(sPregunta[2]);
+                        secondOptionBtn.setText("B) " + sPregunta[2]);
                         //Toast.makeText(context,"2"+ sPregunta[2],  Toast.LENGTH_SHORT).show();
-                        thirdOptionBtn.setText(sPregunta[3]);
+                        thirdOptionBtn.setText("C) " + sPregunta[3]);
                         //Toast.makeText(context,"3"+ sPregunta[3],  Toast.LENGTH_SHORT).show();
-                        fourthOptionBtn.setText(sPregunta[4]);
+                        fourthOptionBtn.setText("D) " + sPregunta[4]);
                         //Toast.makeText(context,"4"+ sPregunta[4],  Toast.LENGTH_SHORT).show();
                         //Toast.makeText(context,"5"+ sPregunta[5],  Toast.LENGTH_SHORT).show();
                         iCorrecta = Integer.parseInt(sPregunta[5]);
                         tipoDePregunta = sPregunta[6];
-                        Toast.makeText(context,"6 "+ sPregunta[6],  Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context,"6 "+ sPregunta[6],  Toast.LENGTH_SHORT).show();
+                        if (sPregunta[6].matches("VF")){
+                            // Ocultar los dos botones que no se utilizan por ser true o false
+                            thirdOptionBtn.setVisibility(View.GONE);
+                            fourthOptionBtn.setVisibility(View.GONE);
+                        }
                         pDialog.dismiss();
                     }
                 });
