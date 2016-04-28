@@ -19,26 +19,25 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="200px"
+        android:layout_height="150px"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Descripcion"
         android:id="@+id/descripcionPreguntaTV"
         android:layout_below="@+id/tituloPreguntaTV"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="200px"
+        android:layout_height="175px"
         android:text="Op1"
         android:id="@+id/firstOptionBtn"
-        android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tituloPreguntaTV" />
+        android:layout_toStartOf="@+id/tituloPreguntaTV"
+        android:layout_below="@+id/descripcionPreguntaTV" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="200px"
+        android:layout_height="175px"
         android:text="Op2"
         android:id="@+id/secondOptionBtn"
         android:layout_alignTop="@+id/firstOptionBtn"
@@ -47,7 +46,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="200px"
+        android:layout_height="175px"
         android:text="Op3"
         android:id="@+id/thirdOptionBtn"
         android:layout_below="@+id/firstOptionBtn"
@@ -56,7 +55,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="200px"
+        android:layout_height="175px"
         android:text="Op4"
         android:id="@+id/fourthOptionBtn"
         android:layout_alignTop="@+id/thirdOptionBtn"
