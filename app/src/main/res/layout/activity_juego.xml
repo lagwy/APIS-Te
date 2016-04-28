@@ -63,55 +63,62 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="120px"
-        android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/button"
+        android:layout_width="190px"
+        android:layout_height="100px"
+        android:text="Anis\n100%"
+        android:id="@+id/anisScoreBtn"
+        android:clickable="false"
         android:layout_alignBottom="@+id/masetaIV1"
-        android:layout_alignStart="@+id/masetaIV1" />
+        android:layout_alignStart="@+id/masetaIV1"
+         />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="120px"
-        android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/button2"
+        android:layout_width="190px"
+        android:layout_height="100px"
+        android:text="Camellia\n100%"
+        android:id="@+id/camelliaScoreBtn"
+        android:clickable="false"
         android:layout_alignBottom="@+id/masetaIV2"
         android:layout_alignStart="@+id/masetaIV2" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="120px"
-        android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/button3"
+        android:layout_width="190px"
+        android:layout_height="100px"
+        android:text="Ginseng\n100%"
+        android:id="@+id/ginsengScoreBtn"
+        android:clickable="false"
         android:layout_alignBottom="@+id/masetaIV3"
         android:layout_alignStart="@+id/masetaIV3" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="120px"
-        android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/button4"
+        android:layout_width="190px"
+        android:layout_height="100px"
+        android:text="Jazmin\n100%"
+        android:id="@+id/jazminScoreBtn"
+        android:clickable="false"
         android:layout_alignBottom="@+id/masetaIV4"
         android:layout_alignStart="@+id/masetaIV4" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="120px"
-        android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/button5"
+        android:layout_width="190px"
+        android:layout_height="100px"
+        android:text="Limon\n100%"
+        android:id="@+id/limonScoreBtn"
+        android:clickable="false"
         android:layout_alignBottom="@+id/masetaIV5"
         android:layout_alignStart="@+id/masetaIV5" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="120px"
-        android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/button6"
+        android:layout_width="190px"
+        android:layout_height="100px"
+        android:text="Manzanilla\n100%"
+        android:id="@+id/manzanillaScoreBtn"
+        android:clickable="false"
         android:layout_alignBottom="@+id/masetaIV6"
         android:layout_alignStart="@+id/masetaIV6" />
 
