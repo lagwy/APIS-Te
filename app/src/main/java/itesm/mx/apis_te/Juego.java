@@ -89,6 +89,7 @@ public class Juego extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("Cerrar sesión")
+                    .setIcon(R.mipmap.teaville_logo)
                     .setMessage("¿Estás seguro que deseas cerrar la sesión?")
                     .setPositiveButton("Si", new DialogInterface.OnClickListener()
                     {

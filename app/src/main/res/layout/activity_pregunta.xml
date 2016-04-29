@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#1ED900"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Te"
         android:id="@+id/tituloPreguntaTV"
+        android:textColor="#fff"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -22,6 +24,7 @@
         android:layout_height="150px"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Descripcion"
+        android:textColor="#fff"
         android:id="@+id/descripcionPreguntaTV"
         android:layout_below="@+id/tituloPreguntaTV"
         android:layout_centerHorizontal="true" />
@@ -31,14 +34,18 @@
         android:layout_height="175px"
         android:text="Op1"
         android:id="@+id/firstOptionBtn"
+        android:background="#FF6C00"
+        android:textColor="#fff"
+        android:layout_below="@+id/descripcionPreguntaTV"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tituloPreguntaTV"
-        android:layout_below="@+id/descripcionPreguntaTV" />
+        android:layout_toStartOf="@+id/tituloPreguntaTV" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="175px"
         android:text="Op2"
+        android:background="#FF6C00"
+        android:textColor="#fff"
         android:id="@+id/secondOptionBtn"
         android:layout_alignTop="@+id/firstOptionBtn"
         android:layout_alignParentEnd="true"
@@ -49,14 +56,19 @@
         android:layout_height="175px"
         android:text="Op3"
         android:id="@+id/thirdOptionBtn"
+        android:background="#FF6C00"
+        android:textColor="#fff"
         android:layout_below="@+id/firstOptionBtn"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/tituloPreguntaTV" />
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/firstOptionBtn" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="175px"
         android:text="Op4"
+        android:background="#FF6C00"
+        android:textColor="#fff"
         android:id="@+id/fourthOptionBtn"
         android:layout_alignTop="@+id/thirdOptionBtn"
         android:layout_alignStart="@+id/secondOptionBtn"

@@ -21,8 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        android:name=".MainActivity"
-        android:screenOrientation="landscape" />
         <activity
             android:name=".Registro"
             android:screenOrientation="landscape" />
@@ -52,6 +50,7 @@
             android:name=".Cuenta"
             android:screenOrientation="landscape" />
         <activity android:name=".Pregunta"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="landscape"></activity>
     </application>
 

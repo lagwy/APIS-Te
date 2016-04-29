@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#1ED900"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Bienvenido"
+        android:textColor="#fff"
         android:id="@+id/bienvenidaTituloTV"
         android:layout_centerHorizontal="true" />
 
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/bienvenidaMensajeTV"
+        android:textColor="#fff"
         android:layout_below="@+id/bienvenidaTituloTV"
         android:layout_centerHorizontal="true" />
 
@@ -29,6 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Entendido"
+        android:background="#FF6C00"
+        android:textColor="#fff"
+        android:padding="10px"
         android:id="@+id/avanzaBienvenidaBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

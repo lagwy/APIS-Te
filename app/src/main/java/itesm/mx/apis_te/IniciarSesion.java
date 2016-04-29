@@ -147,6 +147,7 @@ public class IniciarSesion extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(context, "El usuario no se encuentra en la base de datos",
                                 Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
                     }
                 });
             return null;

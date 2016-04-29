@@ -6,6 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="#1ED900"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="itesm.mx.apis_te.Cuenta">
 
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Información del usuario"
         android:id="@+id/tituloCreditosTV"
+        android:textColor="#fff"
         android:textSize="25dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,6 +25,9 @@
         android:layout_height="wrap_content"
         android:text="Regresar"
         android:id="@+id/backCuentaBtn"
+        android:padding="10px"
+        android:background="#FF6C00"
+        android:textColor="#fff"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -30,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre:"
+        android:textColor="#fff"
         android:id="@+id/nombreTV"
         android:textSize="20dp"
         android:layout_below="@+id/backCuentaBtn"
@@ -37,6 +43,7 @@
 
     <TextView
         android:layout_width="wrap_content"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/nombreCuentaTV"
@@ -47,6 +54,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         android:text="Correo electrónico: "
         android:id="@+id/emailTV"
         android:textSize="20dp"
@@ -59,6 +67,7 @@
         android:text=""
         android:id="@+id/emailCuentaTV"
         android:textSize="20dp"
+        android:textColor="#fff"
         android:layout_below="@+id/nombreCuentaTV"
         android:layout_alignStart="@+id/nombreCuentaTV" />
 
@@ -69,6 +78,7 @@
         android:id="@+id/cambiarPwdTV"
         android:textSize="25dp"
         android:layout_centerVertical="true"
+        android:textColor="#fff"
         android:layout_centerHorizontal="true"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false" />
@@ -79,6 +89,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:hint="Contraseña"
+        android:textColor="#fff"
         android:id="@+id/passwordCuentaET"
         android:layout_below="@+id/cambiarPwdTV"
         android:layout_alignStart="@+id/emailTV"
@@ -89,6 +100,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
+        android:textColor="#fff"
         android:hint="Confirmar contraseña"
         android:id="@+id/nuevapwdCuentaET"
         android:layout_below="@+id/passwordCuentaET"
@@ -100,6 +112,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
+        android:textColor="#fff"
         android:hint="Confirmar contraseña"
         android:id="@+id/confirmapwdET"
         android:layout_below="@+id/nuevapwdCuentaET"
@@ -110,6 +123,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
+        android:background="#FF6C00"
+        android:textColor="#fff"
+        android:padding="10px"
         android:id="@+id/guardarCuentaBtn"
         android:layout_alignTop="@+id/passwordCuentaET"
         android:layout_alignParentEnd="true" />

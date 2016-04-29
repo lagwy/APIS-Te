@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="#1ED900"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="itesm.mx.apis_te.Registro">
@@ -15,6 +16,7 @@
         android:text="Nuevo Registro"
         android:id="@+id/tituloRegistroTV"
         android:textSize="25dp"
+        android:textColor="#fff"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:textColor="#fff"
         android:hint="Nombre"
         android:id="@+id/nombreRegistroET"
         android:layout_below="@+id/tituloRegistroTV"
@@ -32,6 +35,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:textColor="#fff"
         android:ems="10"
         android:hint="Correo electrónico"
         android:id="@+id/correoRegistroET"
@@ -44,6 +48,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:hint="Contraseña"
+        android:textColor="#fff"
         android:id="@+id/passwordRegistroET"
         android:layout_below="@+id/correoRegistroET"
         android:layout_centerHorizontal="true"  />
@@ -53,6 +58,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
+        android:textColor="#fff"
         android:hint="Confirmar contraseña"
         android:id="@+id/confirmapwdRegistroET"
         android:layout_below="@+id/passwordRegistroET"
@@ -62,6 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrame!"
+        android:background="#FF6C00"
+        android:padding="10px"
+        android:textColor="#fff"
         android:id="@+id/registroBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -70,6 +79,9 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FF6C00"
+        android:padding="10px"
+        android:textColor="#fff"
         android:text="Regresar"
         android:id="@+id/backRegistroBtn"
         android:layout_alignTop="@+id/tituloRegistroTV"
