@@ -62,30 +62,54 @@ public class Pregunta extends AppCompatActivity {
         tituloPreguntaTV.setText(sTitulo);
         new obtenPregunta(Pregunta.this, sTitulo).execute();
 
+        // Colores
+        // rojo FA0000 fallo
+        // gris 908585 acierto
+
         View.OnClickListener buttonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (firstOptionBtn.isPressed()){
                     if (iCorrecta == 1){
+                        firstOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        firstOptionBtn.setBackgroundResource(R.color.rojo);
+                        Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
                 if (secondOptionBtn.isPressed()){
                     if (iCorrecta == 2){
+                        secondOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        secondOptionBtn.setBackgroundResource(R.color.rojo);
+                        Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
                 if (thirdOptionBtn.isPressed()){
                     if (iCorrecta == 3){
+                        thirdOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        thirdOptionBtn.setBackgroundResource(R.color.rojo);
+                        Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
                 if (fourthOptionBtn.isPressed()){
                     if (iCorrecta == 4){
+                        fourthOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        fourthOptionBtn.setBackgroundResource(R.color.gris);
+                        Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
