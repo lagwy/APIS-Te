@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,7 @@ public class Pregunta extends AppCompatActivity {
     Button thirdOptionBtn;
     Button fourthOptionBtn;
     int iCorrecta = 0;
+    int iId_Pregunta;
     String tipoDePregunta;
 
     @Override
@@ -46,6 +48,7 @@ public class Pregunta extends AppCompatActivity {
         // Variables
         String sTitulo = "";
         tipoDePregunta = "";
+        iId_Pregunta = 0;
         descripcionPreguntaTV = (TextView) findViewById(R.id.descripcionPreguntaTV);
         firstOptionBtn = (Button) findViewById(R.id.firstOptionBtn);
         secondOptionBtn = (Button) findViewById(R.id.secondOptionBtn);
@@ -108,7 +111,7 @@ public class Pregunta extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
-                        fourthOptionBtn.setBackgroundResource(R.color.gris);
+                        fourthOptionBtn.setBackgroundResource(R.color.rojo);
                         Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
@@ -190,6 +193,7 @@ public class Pregunta extends AppCompatActivity {
                         iCorrecta = Integer.parseInt(sPregunta[5]);
                         tipoDePregunta = sPregunta[6];
                         //Toast.makeText(context,"6 "+ sPregunta[6],  Toast.LENGTH_SHORT).show();
+                        iId_Pregunta = Integer.parseInt(sPregunta[7]);
                         if (sPregunta[6].matches("VF")){
                             // Ocultar los dos botones que no se utilizan por ser true o false
                             thirdOptionBtn.setVisibility(View.GONE);
