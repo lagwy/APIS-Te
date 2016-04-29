@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Bienvenida extends AppCompatActivity {
+    String sEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +19,12 @@ public class Bienvenida extends AppCompatActivity {
         // Declaración de variables de interfaz
         TextView mensajeTV = (TextView) findViewById(R.id.bienvenidaMensajeTV);
         final Button avanzaBtn = (Button) findViewById(R.id.avanzaBienvenidaBtn);
-        String sNombre = "";
+        sEmail = "";
 
         // Obtener informacion del intent
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            sNombre = extras.getString("nombre");
+            sEmail = extras.getString("email");
         }
 
         mensajeTV.setText("¡Bienvenido a Teaville!\n" +
@@ -44,6 +45,7 @@ public class Bienvenida extends AppCompatActivity {
                     // Toast.makeText(getApplicationContext(),"Presionado",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Bienvenida.this, Juego.class);
                     // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("email", sEmail);
                     startActivity(intent);
                     finish();
                 }

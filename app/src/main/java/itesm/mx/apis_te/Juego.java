@@ -1,13 +1,33 @@
 package itesm.mx.apis_te;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Juego extends AppCompatActivity {
     ImageView anisIV;
@@ -16,6 +36,14 @@ public class Juego extends AppCompatActivity {
     ImageView jazminIV;
     ImageView limonIV;
     ImageView manzanillaIV;
+    Button anisBtn;
+    Button camelliaBtn;
+    Button ginsengBtn;
+    Button jazminBtn;
+    Button limonBtn;
+    Button manzanillaBtn;
+    String sEmail;
+    ProgressDialog pDialog;
     int iCerrarSesion; // Variable para cuando se presiona el botón de back
 
     @Override
@@ -23,6 +51,21 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        sEmail = "";
+        // Variables de interfaz
+        anisBtn = (Button) findViewById(R.id.anisScoreBtn);
+        camelliaBtn = (Button) findViewById(R.id.camelliaScoreBtn);
+        ginsengBtn = (Button) findViewById(R.id.ginsengScoreBtn);
+        jazminBtn = (Button) findViewById(R.id.jazminScoreBtn);
+        limonBtn = (Button) findViewById(R.id.limonScoreBtn);
+        manzanillaBtn = (Button) findViewById(R.id.manzanillaScoreBtn);
+
+        // Obtener informacion del intent
+        Bundle extras = getIntent().getExtras();
+        if (extras != null){
+            sEmail = extras.getString("email");
+        }
+        new obtenScore(Juego.this, sEmail).execute();
         // Inicializar variables en threads
         iCerrarSesion = 0;
         runOnUiThread(new Runnable() {
@@ -69,6 +112,7 @@ public class Juego extends AppCompatActivity {
                     sTe = "Manzanilla";
                 }
                 intent.putExtra("tipo",sTe);
+                intent.putExtra("email", sEmail);
                 startActivity(intent);
             }
         };
@@ -108,4 +152,84 @@ public class Juego extends AppCompatActivity {
                     .show();
         }
     }
+
+
+    private String buscaScores(String sCorreo) {
+        HttpClient httpClient;
+        List<NameValuePair> nameValuePairList;
+        HttpPost httpPost;
+        httpClient = new DefaultHttpClient();
+        httpPost = new HttpPost("http://lagwy.com/teaville/obtenScore.php");
+        // Añadir los datos
+        nameValuePairList = new ArrayList<NameValuePair>(1);
+        nameValuePairList.add(new BasicNameValuePair("email", sCorreo));
+
+        try {
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
+            HttpResponse response = httpClient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
+            String result = EntityUtils.toString(entity);
+            return result;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    class obtenScore extends AsyncTask<String, String, String> {
+        private Activity context;
+        private String sCorreo;
+
+        obtenScore(Activity context, String sCorreo) {
+            this.context = context;
+            this.sCorreo = sCorreo;
+        }
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pDialog = new ProgressDialog(Juego.this);
+            pDialog.setMessage("Cargando...");
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            final String resultado = buscaScores(sCorreo);
+            if (!resultado.matches("false"))
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Toast.makeText(context, resultado,  Toast.LENGTH_SHORT).show();
+                        String[] sScores = resultado.split("#");
+                        // 6 datos en el arreglo, todos enteros
+                        // Descrip, R1, R2, R3, R4, RC
+                        anisBtn.setText("Anis\n" + sScores[0]+"%");
+                        camelliaBtn.setText("Camellia\n" + sScores[0]+"%");
+                        ginsengBtn.setText("Ginseng\n" + sScores[0]+"%");
+                        jazminBtn.setText("Jazmin\n" + sScores[0]+"%");
+                        limonBtn.setText("Limon\n" + sScores[0]+"%");
+                        manzanillaBtn.setText("Manzanilla\n" + sScores[0]+"%");
+                        pDialog.dismiss();
+                    }
+                });
+            else
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, "No fue posible cargar los puntajes.",
+                                Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
+                        finish();
+                    }
+                });
+            return null;
+        }
+    }
+
+
 }
