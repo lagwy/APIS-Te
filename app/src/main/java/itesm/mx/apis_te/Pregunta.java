@@ -40,6 +40,7 @@ public class Pregunta extends AppCompatActivity {
     int iId_Pregunta;
     String tipoDePregunta;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class Pregunta extends AppCompatActivity {
         // Variables
         String sTitulo = "";
         tipoDePregunta = "";
+        String sEmail = "";
         iId_Pregunta = 0;
         descripcionPreguntaTV = (TextView) findViewById(R.id.descripcionPreguntaTV);
         firstOptionBtn = (Button) findViewById(R.id.firstOptionBtn);
@@ -60,15 +62,17 @@ public class Pregunta extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             sTitulo = extras.getString("tipo");
+            sEmail = extras.getString("email");
         }
 
         tituloPreguntaTV.setText(sTitulo);
-        new obtenPregunta(Pregunta.this, sTitulo).execute();
+        new obtenPregunta(Pregunta.this, sTitulo, sEmail).execute();
 
         // Colores
         // rojo FA0000 fallo
         // gris 908585 acierto
 
+        final String finalSEmail = sEmail;
         View.OnClickListener buttonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +80,7 @@ public class Pregunta extends AppCompatActivity {
                     if (iCorrecta == 1){
                         firstOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         finish();
                     } else {
                         firstOptionBtn.setBackgroundResource(R.color.rojo);
@@ -87,6 +92,7 @@ public class Pregunta extends AppCompatActivity {
                     if (iCorrecta == 2){
                         secondOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         finish();
                     } else {
                         secondOptionBtn.setBackgroundResource(R.color.rojo);
@@ -98,6 +104,7 @@ public class Pregunta extends AppCompatActivity {
                     if (iCorrecta == 3){
                         thirdOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         finish();
                     } else {
                         thirdOptionBtn.setBackgroundResource(R.color.rojo);
@@ -109,6 +116,7 @@ public class Pregunta extends AppCompatActivity {
                     if (iCorrecta == 4){
                         fourthOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
+                        new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         finish();
                     } else {
                         fourthOptionBtn.setBackgroundResource(R.color.rojo);
@@ -125,14 +133,15 @@ public class Pregunta extends AppCompatActivity {
         fourthOptionBtn.setOnClickListener(buttonListener);
     }
 
-    private String buscaPregunta(String sTipo) {
+    private String buscaPregunta(String sTipo, String sEmail) {
         HttpClient httpClient;
         List<NameValuePair> nameValuePairList;
         HttpPost httpPost;
         httpClient = new DefaultHttpClient();
         httpPost = new HttpPost("http://lagwy.com/teaville/obtenPregunta.php");
         // Añadir los datos
-        nameValuePairList = new ArrayList<NameValuePair>(1);
+        nameValuePairList = new ArrayList<NameValuePair>(2);
+        nameValuePairList.add(new BasicNameValuePair("email", sEmail));
         nameValuePairList.add(new BasicNameValuePair("tipo", sTipo));
 
         try {
@@ -154,10 +163,12 @@ public class Pregunta extends AppCompatActivity {
     class obtenPregunta extends AsyncTask<String, String, String> {
         private Activity context;
         private String sTipo;
+        private String sEmail;
 
-        obtenPregunta(Activity context, String sTipo) {
+        obtenPregunta(Activity context, String sTipo, String sEmail) {
             this.context = context;
             this.sTipo = sTipo;
+            this.sEmail = sEmail;
         }
 
         @Override
@@ -170,7 +181,7 @@ public class Pregunta extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            final String resultado = buscaPregunta(sTipo);
+            final String resultado = buscaPregunta(sTipo, sEmail);
             if (!resultado.matches("false"))
                 context.runOnUiThread(new Runnable() {
                     @Override
@@ -215,4 +226,73 @@ public class Pregunta extends AppCompatActivity {
             return null;
         }
     }
+
+    private String preguntaAcertada(String sEmail) {
+        HttpClient httpClient;
+        List<NameValuePair> nameValuePairList;
+        HttpPost httpPost;
+        httpClient = new DefaultHttpClient();
+        httpPost = new HttpPost("http://lagwy.com/teaville/preguntaAcertada.php");
+        // Añadir los datos
+        nameValuePairList = new ArrayList<NameValuePair>(2);
+        nameValuePairList.add(new BasicNameValuePair("email", sEmail));
+        nameValuePairList.add(new BasicNameValuePair("id", ""+iId_Pregunta));
+        try {
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
+            HttpResponse response = httpClient.execute(httpPost);
+            HttpEntity entity = response.getEntity();
+            String result = EntityUtils.toString(entity);
+            return result;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    class actualizaContestadas extends AsyncTask<String, String, String> {
+        private Activity context;
+        private String sEmail;
+
+        actualizaContestadas(Activity context, String sEmail) {
+            this.context = context;
+            this.sEmail = sEmail;
+        }
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pDialog = new ProgressDialog(Pregunta.this);
+            pDialog.setMessage("Actualizando información...");
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            final String resultado = preguntaAcertada(sEmail);
+            if (!resultado.matches("false"))
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, "Muy bien!",  Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
+                    }
+                });
+            else
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, "No se pudo actualizar la información.",
+                                Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
+                        finish();
+                    }
+                });
+            return null;
+        }
+    }
+
 }
