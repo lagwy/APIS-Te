@@ -8,7 +8,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -43,6 +47,7 @@ public class Juego extends AppCompatActivity {
     Button limonBtn;
     Button manzanillaBtn;
     String sEmail;
+    Button settingsBtn;
     ProgressDialog pDialog;
     int iCerrarSesion; // Variable para cuando se presiona el botón de back
 
@@ -59,10 +64,11 @@ public class Juego extends AppCompatActivity {
         jazminBtn = (Button) findViewById(R.id.jazminScoreBtn);
         limonBtn = (Button) findViewById(R.id.limonScoreBtn);
         manzanillaBtn = (Button) findViewById(R.id.manzanillaScoreBtn);
+        settingsBtn = (Button) findViewById(R.id.settingsBtn);
 
         // Obtener informacion del intent
         Bundle extras = getIntent().getExtras();
-        if (extras != null){
+        if (extras != null) {
             sEmail = extras.getString("email");
         }
         new obtenScore(Juego.this, sEmail).execute();
@@ -93,26 +99,34 @@ public class Juego extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Juego.this, Pregunta.class);
                 String sTe = "";
-                if (anisIV.isPressed()){
+                if (anisIV.isPressed()) {
                     sTe = "Anis";
                 }
-                if (camelliaIV.isPressed()){
+                if (camelliaIV.isPressed()) {
                     sTe = "Camellia Sinensis";
                 }
-                if (ginsengIV.isPressed()){
+                if (ginsengIV.isPressed()) {
                     sTe = "Ginseng";
                 }
-                if (jazminIV.isPressed()){
+                if (jazminIV.isPressed()) {
                     sTe = "Jazmin";
                 }
-                if (limonIV.isPressed()){
+                if (limonIV.isPressed()) {
                     sTe = "Limon";
                 }
-                if (manzanillaIV.isPressed()){
+                if (manzanillaIV.isPressed()) {
                     sTe = "Manzanilla";
                 }
-                intent.putExtra("tipo",sTe);
+                intent.putExtra("tipo", sTe);
                 intent.putExtra("email", sEmail);
+                startActivity(intent);
+            }
+        };
+
+        View.OnClickListener listenerSettings = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Juego.this, Cuenta.class);
                 startActivity(intent);
             }
         };
@@ -123,29 +137,29 @@ public class Juego extends AppCompatActivity {
         jazminIV.setOnClickListener(listener);
         limonIV.setOnClickListener(listener);
         manzanillaIV.setOnClickListener(listener);
+        settingsBtn.setOnClickListener(listenerSettings);
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         // No cerrar la actividad
         iCerrarSesion++;
-        if (iCerrarSesion > 2){
+        if (iCerrarSesion > 2) {
             // Mandar dialogo de confirmación
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("Cerrar sesión")
                     .setIcon(R.mipmap.teaville_logo)
                     .setMessage("¿Estás seguro que deseas cerrar la sesión?")
-                    .setPositiveButton("Si", new DialogInterface.OnClickListener()
-                    {
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
                         }
 
                     })
-                    .setNegativeButton("No",new DialogInterface.OnClickListener(){
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which){
+                        public void onClick(DialogInterface dialog, int which) {
                             iCerrarSesion = 0;
                         }
                     })
@@ -190,7 +204,7 @@ public class Juego extends AppCompatActivity {
         }
 
         @Override
-        protected void onPreExecute(){
+        protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Juego.this);
             pDialog.setMessage("Cargando...");
@@ -208,12 +222,12 @@ public class Juego extends AppCompatActivity {
                         String[] sScores = resultado.split("#");
                         // 6 datos en el arreglo, todos enteros
                         // Descrip, R1, R2, R3, R4, RC
-                        anisBtn.setText("Anis\n" + sScores[0]+"%");
-                        camelliaBtn.setText("Camellia\n" + sScores[0]+"%");
-                        ginsengBtn.setText("Ginseng\n" + sScores[0]+"%");
-                        jazminBtn.setText("Jazmin\n" + sScores[0]+"%");
-                        limonBtn.setText("Limon\n" + sScores[0]+"%");
-                        manzanillaBtn.setText("Manzanilla\n" + sScores[0]+"%");
+                        anisBtn.setText("Anis\n" + sScores[0] + "%");
+                        camelliaBtn.setText("Camellia\n" + sScores[0] + "%");
+                        ginsengBtn.setText("Ginseng\n" + sScores[0] + "%");
+                        jazminBtn.setText("Jazmin\n" + sScores[0] + "%");
+                        limonBtn.setText("Limon\n" + sScores[0] + "%");
+                        manzanillaBtn.setText("Manzanilla\n" + sScores[0] + "%");
                         pDialog.dismiss();
                     }
                 });
@@ -230,6 +244,4 @@ public class Juego extends AppCompatActivity {
             return null;
         }
     }
-
-
 }

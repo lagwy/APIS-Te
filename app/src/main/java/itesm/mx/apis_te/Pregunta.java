@@ -39,7 +39,7 @@ public class Pregunta extends AppCompatActivity {
     int iCorrecta = 0;
     int iId_Pregunta;
     String tipoDePregunta;
-
+    TextView tituloPreguntaTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class Pregunta extends AppCompatActivity {
         secondOptionBtn = (Button) findViewById(R.id.secondOptionBtn);
         thirdOptionBtn = (Button) findViewById(R.id.thirdOptionBtn);
         fourthOptionBtn = (Button) findViewById(R.id.fourthOptionBtn);
-        TextView tituloPreguntaTV = (TextView) findViewById(R.id.tituloPreguntaTV);
+        tituloPreguntaTV = (TextView) findViewById(R.id.tituloPreguntaTV);
 
         // Obtener informacion del intent
         Bundle extras = getIntent().getExtras();
@@ -234,9 +234,10 @@ public class Pregunta extends AppCompatActivity {
         httpClient = new DefaultHttpClient();
         httpPost = new HttpPost("http://lagwy.com/teaville/preguntaAcertada.php");
         // Añadir los datos
-        nameValuePairList = new ArrayList<NameValuePair>(2);
+        nameValuePairList = new ArrayList<NameValuePair>(3);
         nameValuePairList.add(new BasicNameValuePair("email", sEmail));
         nameValuePairList.add(new BasicNameValuePair("id", ""+iId_Pregunta));
+        nameValuePairList.add(new BasicNameValuePair("tipo",tituloPreguntaTV.getText().toString()));
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
             HttpResponse response = httpClient.execute(httpPost);

@@ -122,13 +122,14 @@
         android:layout_alignBottom="@+id/masetaIV6"
         android:layout_alignStart="@+id/masetaIV6" />
 
-    <!--
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/arbolIV"
-        android:src="@android:drawable/sym_def_app_icon"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/masetaIV2" />
-    -->
+    <!-- Botón para las configuraciones y créditos-->
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="110px"
+        android:layout_height="110px"
+        android:id="@+id/settingsBtn"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/masetaIV6"
+        android:background="@mipmap/teaville_settings" />
+
 </RelativeLayout>

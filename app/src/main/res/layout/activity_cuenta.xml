@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Información del usuario"
-        android:id="@+id/tituloCreditosTV"
+        android:id="@+id/tituloCuentaTV"
         android:textColor="#fff"
         android:textSize="25dp"
         android:layout_alignParentTop="true"
@@ -39,7 +39,7 @@
         android:id="@+id/nombreTV"
         android:textSize="20dp"
         android:layout_below="@+id/backCuentaBtn"
-        android:layout_alignStart="@+id/tituloCreditosTV" />
+        android:layout_alignStart="@+id/tituloCuentaTV" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:textColor="#fff"
-        android:hint="Confirmar contraseña"
+        android:hint="Nueva contraseña"
         android:id="@+id/nuevapwdCuentaET"
         android:layout_below="@+id/passwordCuentaET"
         android:layout_alignStart="@+id/passwordCuentaET"
@@ -129,6 +129,29 @@
         android:id="@+id/guardarCuentaBtn"
         android:layout_alignTop="@+id/passwordCuentaET"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="180px"
+        android:layout_height="wrap_content"
+        android:text="Ayuda"
+        android:id="@+id/ayudaCuentaBtn"
+        android:padding="10px"
+        android:layout_marginTop="30dp"
+        android:background="#FF6C00"
+        android:textColor="#fff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="180px"
+        android:layout_height="wrap_content"
+        android:text="Créditos"
+        android:id="@+id/creditosCuentaBtn"
+        android:padding="10px"
+        android:background="#FF6C00"
+        android:textColor="#fff"
+        android:layout_above="@+id/confirmapwdET"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
