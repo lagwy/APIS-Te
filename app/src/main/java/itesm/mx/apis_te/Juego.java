@@ -178,6 +178,7 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Juego.this, Cuenta.class);
+                intent.putExtra("email", sEmail);
                 startActivity(intent);
             }
         };

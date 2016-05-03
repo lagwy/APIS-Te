@@ -34,7 +34,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre:"
+        android:text="Correo electrónico:"
         android:textColor="#fff"
         android:id="@+id/nombreTV"
         android:textSize="20dp"
@@ -43,33 +43,14 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:textColor="#fff"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
         android:text=""
-        android:id="@+id/nombreCuentaTV"
-        android:textSize="20dp"
-        android:layout_above="@+id/emailTV"
-        android:layout_toEndOf="@+id/cambiarPwdTV" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:text="Correo electrónico: "
         android:id="@+id/emailTV"
         android:textSize="20dp"
         android:layout_below="@+id/nombreTV"
         android:layout_alignStart="@+id/nombreTV" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/emailCuentaTV"
-        android:textSize="20dp"
-        android:textColor="#fff"
-        android:layout_below="@+id/nombreCuentaTV"
-        android:layout_alignStart="@+id/nombreCuentaTV" />
 
     <TextView
         android:layout_width="wrap_content"
