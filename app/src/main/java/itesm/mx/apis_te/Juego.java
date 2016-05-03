@@ -49,6 +49,7 @@ public class Juego extends AppCompatActivity {
     String sEmail;
     Button settingsBtn;
     ProgressDialog pDialog;
+    private final static int ACTUALIZA = 7;
     int iCerrarSesion; // Variable para cuando se presiona el botón de back
 
     @Override
@@ -119,7 +120,7 @@ public class Juego extends AppCompatActivity {
                 }
                 intent.putExtra("tipo", sTe);
                 intent.putExtra("email", sEmail);
-                startActivity(intent);
+                startActivityForResult(intent, ACTUALIZA);
             }
         };
 
@@ -194,6 +195,14 @@ public class Juego extends AppCompatActivity {
         return "";
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode, data);
+        if (resultCode == RESULT_OK){
+            new obtenScore(Juego.this, sEmail).execute();
+        }
+    }
+
     class obtenScore extends AsyncTask<String, String, String> {
         private Activity context;
         private String sCorreo;
@@ -222,12 +231,12 @@ public class Juego extends AppCompatActivity {
                         String[] sScores = resultado.split("#");
                         // 6 datos en el arreglo, todos enteros
                         // Descrip, R1, R2, R3, R4, RC
-                        anisBtn.setText("Anis\n" + sScores[0] + "%");
-                        camelliaBtn.setText("Camellia\n" + sScores[0] + "%");
-                        ginsengBtn.setText("Ginseng\n" + sScores[0] + "%");
-                        jazminBtn.setText("Jazmin\n" + sScores[0] + "%");
-                        limonBtn.setText("Limon\n" + sScores[0] + "%");
-                        manzanillaBtn.setText("Manzanilla\n" + sScores[0] + "%");
+                        anisBtn.setText("Anis\n" + (int) Double.parseDouble(sScores[0]) + "%");
+                        camelliaBtn.setText("Camellia\n" + (int)Double.parseDouble(sScores[1]) + "%");
+                        ginsengBtn.setText("Ginseng\n" + (int)Double.parseDouble(sScores[2]) + "%");
+                        jazminBtn.setText("Jazmin\n" + (int)Double.parseDouble(sScores[3]) + "%");
+                        limonBtn.setText("Limon\n" + (int)Double.parseDouble(sScores[4]) + "%");
+                        manzanillaBtn.setText("Manzanilla\n" + (int)Double.parseDouble(sScores[5]) + "%");
                         pDialog.dismiss();
                     }
                 });
