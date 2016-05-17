@@ -102,6 +102,7 @@ public class Pregunta extends AppCompatActivity {
                         firstOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
+                        setResult(RESULT_OK);
                         finish();
                     } else {
                         firstOptionBtn.setBackgroundResource(R.color.rojo);
@@ -114,6 +115,7 @@ public class Pregunta extends AppCompatActivity {
                         secondOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
+                        setResult(RESULT_OK);
                         finish();
                     } else {
                         secondOptionBtn.setBackgroundResource(R.color.rojo);
@@ -126,6 +128,7 @@ public class Pregunta extends AppCompatActivity {
                         thirdOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
+                        setResult(RESULT_OK);
                         finish();
                     } else {
                         thirdOptionBtn.setBackgroundResource(R.color.rojo);
@@ -138,6 +141,7 @@ public class Pregunta extends AppCompatActivity {
                         fourthOptionBtn.setBackgroundResource(R.color.gris);
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
+                        setResult(RESULT_OK);
                         finish();
                     } else {
                         fourthOptionBtn.setBackgroundResource(R.color.rojo);

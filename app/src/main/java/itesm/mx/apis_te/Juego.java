@@ -70,6 +70,8 @@ public class Juego extends AppCompatActivity {
     String sEmail;
     Button settingsBtn;
     ProgressDialog pDialog;
+    int score1, score2, score3, score4, score5, score6;
+    private final static int ACTUALIZA = 7;
     int iCerrarSesion; // Variable para cuando se presiona el botón de back
 
     @Override
@@ -118,29 +120,78 @@ public class Juego extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Juego.this, Pregunta.class);
-                String sTe = "";
                 if (anisIV.isPressed()) {
-                    sTe = "Anis";
+                    if (score1 != 100){
+                        Intent intent = new Intent(Juego.this, Pregunta.class);
+                        String sTe = "";
+                        sTe = "Anis";
+                        intent.putExtra("tipo", sTe);
+                        intent.putExtra("email", sEmail);
+                        startActivityForResult(intent, ACTUALIZA);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ya has completado este té", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 if (camelliaIV.isPressed()) {
-                    sTe = "Camellia Sinensis";
+                    if (score2 != 100){
+                        Intent intent = new Intent(Juego.this, Pregunta.class);
+                        String sTe = "";
+                        sTe = "Camellia Sinensis";
+                        intent.putExtra("tipo", sTe);
+                        intent.putExtra("email", sEmail);
+                        startActivityForResult(intent, ACTUALIZA);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ya has completado este té", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 if (ginsengIV.isPressed()) {
-                    sTe = "Ginseng";
+                    if (score3 != 100){
+                        Intent intent = new Intent(Juego.this, Pregunta.class);
+                        String sTe = "";
+                        sTe = "Ginseng";
+                        intent.putExtra("tipo", sTe);
+                        intent.putExtra("email", sEmail);
+                        startActivityForResult(intent, ACTUALIZA);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ya has completado este té", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 if (jazminIV.isPressed()) {
-                    sTe = "Jazmin";
+                    if (score4 != 100){
+                        Intent intent = new Intent(Juego.this, Pregunta.class);
+                        String sTe = "";
+                        sTe = "Jazmin";
+                        intent.putExtra("tipo", sTe);
+                        intent.putExtra("email", sEmail);
+                        startActivityForResult(intent, ACTUALIZA);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ya has completado este té", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 if (limonIV.isPressed()) {
-                    sTe = "Limon";
+                    if (score5 != 100){
+                        Intent intent = new Intent(Juego.this, Pregunta.class);
+                        String sTe = "";
+                        sTe = "Limon";
+                        intent.putExtra("tipo", sTe);
+                        intent.putExtra("email", sEmail);
+                        startActivityForResult(intent, ACTUALIZA);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ya has completado este té", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 if (manzanillaIV.isPressed()) {
-                    sTe = "Manzanilla";
+                    if (score6 != 100){
+                        Intent intent = new Intent(Juego.this, Pregunta.class);
+                        String sTe = "";
+                        sTe = "Manzanilla";
+                        intent.putExtra("tipo", sTe);
+                        intent.putExtra("email", sEmail);
+                        startActivityForResult(intent, ACTUALIZA);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ya has completado este té", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                intent.putExtra("tipo", sTe);
-                intent.putExtra("email", sEmail);
-                startActivity(intent);
             }
         };
 
@@ -148,6 +199,7 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Juego.this, Cuenta.class);
+                intent.putExtra("email", sEmail);
                 startActivity(intent);
             }
         };
@@ -215,6 +267,14 @@ public class Juego extends AppCompatActivity {
         return "";
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode, data);
+        if (resultCode == RESULT_OK){
+            new obtenScore(Juego.this, sEmail).execute();
+        }
+    }
+
     class obtenScore extends AsyncTask<String, String, String> {
         private Activity context;
         private String sCorreo;
@@ -243,12 +303,18 @@ public class Juego extends AppCompatActivity {
                         String[] sScores = resultado.split("#");
                         // 6 datos en el arreglo, todos enteros
                         // Descrip, R1, R2, R3, R4, RC
-                        anisBtn.setText("Anis\n" + sScores[0] + "%");
-                        camelliaBtn.setText("Camellia\n" + sScores[0] + "%");
-                        ginsengBtn.setText("Ginseng\n" + sScores[0] + "%");
-                        jazminBtn.setText("Jazmin\n" + sScores[0] + "%");
-                        limonBtn.setText("Limon\n" + sScores[0] + "%");
-                        manzanillaBtn.setText("Manzanilla\n" + sScores[0] + "%");
+                        score1 = (int) Double.parseDouble(sScores[0]);
+                        score2 =  (int)Double.parseDouble(sScores[1]);
+                        score3 = (int)Double.parseDouble(sScores[2]);
+                        score4 =  (int)Double.parseDouble(sScores[3]);
+                        score5 = (int)Double.parseDouble(sScores[4]);
+                        score6 = (int)Double.parseDouble(sScores[5]);
+                        anisBtn.setText("Anis\n" + score1 + "%");
+                        camelliaBtn.setText("Camellia\n" + score2 + "%");
+                        ginsengBtn.setText("Ginseng\n" + score3 + "%");
+                        jazminBtn.setText("Jazmin\n" + score4 + "%");
+                        limonBtn.setText("Limon\n" + score5 + "%");
+                        manzanillaBtn.setText("Manzanilla\n" + score6 + "%");
                         pDialog.dismiss();
                     }
                 });
