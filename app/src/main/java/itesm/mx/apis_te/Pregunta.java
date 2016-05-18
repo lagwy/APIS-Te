@@ -103,11 +103,11 @@ public class Pregunta extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         setResult(RESULT_OK);
-                        finish();
+                        // finish();
                     } else {
                         firstOptionBtn.setBackgroundResource(R.color.rojo);
                         Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
-                        finish();
+                         finish();
                     }
                 }
                 if (secondOptionBtn.isPressed()){
@@ -116,11 +116,11 @@ public class Pregunta extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         setResult(RESULT_OK);
-                        finish();
+                        // finish();
                     } else {
                         secondOptionBtn.setBackgroundResource(R.color.rojo);
                         Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
-                        finish();
+                         finish();
                     }
                 }
                 if (thirdOptionBtn.isPressed()){
@@ -129,11 +129,11 @@ public class Pregunta extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         setResult(RESULT_OK);
-                        finish();
+                        // finish();
                     } else {
                         thirdOptionBtn.setBackgroundResource(R.color.rojo);
                         Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
-                        finish();
+                         finish();
                     }
                 }
                 if (fourthOptionBtn.isPressed()){
@@ -142,7 +142,7 @@ public class Pregunta extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Acertaste!", Toast.LENGTH_SHORT).show();
                         new actualizaContestadas(Pregunta.this, finalSEmail).execute();
                         setResult(RESULT_OK);
-                        finish();
+                        // // finish();
                     } else {
                         fourthOptionBtn.setBackgroundResource(R.color.rojo);
                         Toast.makeText(getApplicationContext(), "Fallaste.", Toast.LENGTH_SHORT).show();
@@ -305,6 +305,7 @@ public class Pregunta extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(context, "Muy bien!",  Toast.LENGTH_SHORT).show();
                         pDialog.dismiss();
+                        finish();
                     }
                 });
             else
